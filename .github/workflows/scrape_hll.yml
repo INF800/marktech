@@ -26,13 +26,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-#       - name: pull already scraped data if exists
-#         run: |
-#           git pull origin raw-data/hll
-#           ls -al data/raw
+      - name: pull already scraped data if exists
+        run: |
+          echo "\n" | git config --global pull.rebase true
+          git pull origin raw-data/hll
+          ls -al data/raw
       - name: Create csv file (scraping for 5.55 hrs)
         run: |
-          python scripts/scrape_investing.py --interval-min 1 --limit-sec 200 --save-dir data/raw --stock HLL
+          python scripts/scrape_investing.py --interval-min 1 --limit-sec 150 --save-dir data/raw --stock HLL
       - uses: EndBug/add-and-commit@v8
         with:
           add: data/raw
