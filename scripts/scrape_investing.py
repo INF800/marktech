@@ -156,6 +156,13 @@ def main():
             schedule.run_pending()
             time.sleep(1)
 
+    print("###########################################################################################")
+    print('renaming file)
+    print("###########################################################################################")
+    if (SAVE_DIR/f'{args.symbol}.csv').exists():
+        prefix = datetime.datetime.utcnow().strftime('%Y-%m-%d-%H%-M%-%S')
+        os.rename(str(SAVE_DIR/f'{args.symbol}.csv'), str(SAVE_DIR/f'{prefix}-{args.symbol}.csv'))
+
 
 if __name__=='__main__':
     main()
