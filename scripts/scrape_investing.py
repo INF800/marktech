@@ -161,7 +161,7 @@ def main():
     print("###########################################################################################")
     if (SAVE_DIR/f'{args.symbol}.csv').exists():
         prefix = datetime.datetime.utcnow().strftime('%Y-%m-%d-%H%-M%')
-        os.rename(str(SAVE_DIR/f'{args.symbol}.csv'), str(SAVE_DIR/f'{prefix}-{args.symbol}.csv'))
+        os.rename(str(SAVE_DIR/f'{args.stock}.csv'), str(SAVE_DIR/f'{prefix}-{args.stock}.csv'))
 
 
 if __name__=='__main__':
