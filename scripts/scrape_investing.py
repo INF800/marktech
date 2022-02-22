@@ -1,4 +1,5 @@
 import argparse
+import os
 import sys
 import time
 from datetime import datetime, timedelta
@@ -156,11 +157,11 @@ def main():
             schedule.run_pending()
             time.sleep(1)
 
-    print("###########################################################################################")
-    print('renaming file')
-    print("###########################################################################################")
+    prefix = datetime.datetime.utcnow().strftime('%Y-%m-%d-%H%-M%')
     if (SAVE_DIR/f'{args.symbol}.csv').exists():
-        prefix = datetime.datetime.utcnow().strftime('%Y-%m-%d-%H%-M%')
+        print("###########################################################################################")
+        print('renaming file', str(SAVE_DIR/f'{args.stock}.csv'), '-->', str(SAVE_DIR/f'{prefix}-{args.stock}.csv'))
+        print("###########################################################################################")
         os.rename(str(SAVE_DIR/f'{args.stock}.csv'), str(SAVE_DIR/f'{prefix}-{args.stock}.csv'))
 
 
