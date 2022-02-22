@@ -158,11 +158,13 @@ def main():
             time.sleep(1)
 
     prefix = datetime.utcnow().strftime('%Y-%m-%d-%H%-M%')
-    if (SAVE_DIR/f'{args.symbol}.csv').exists():
+    from_name = SAVE_DIR/f'{args.stock}.csv'
+    to_name = SAVE_DIR/f'{prefix}-{args.stock}.csv'
+    if from_name.exists():
         print("###########################################################################################")
-        print('renaming file', str(SAVE_DIR/f'{args.stock}.csv'), '-->', str(SAVE_DIR/f'{prefix}-{args.stock}.csv'))
+        print('renaming file', from_name, '-->', to_name)
         print("###########################################################################################")
-        os.rename(str(SAVE_DIR/f'{args.stock}.csv'), str(SAVE_DIR/f'{prefix}-{args.stock}.csv'))
+        os.rename(str(from_name), str(to_name))
 
 
 if __name__=='__main__':
