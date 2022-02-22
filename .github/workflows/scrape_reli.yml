@@ -31,7 +31,7 @@ jobs:
           python scripts/scrape_investing.py --interval-min 1 --limit-sec 300 --save-dir data/raw --stock RELI
       - uses: EndBug/add-and-commit@v8
         with:
-          add: stock_data
+          add: data/raw
           message: 'write to csv'
           new_branch: raw-data/reli
           push: true
