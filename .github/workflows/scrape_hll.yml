@@ -1,4 +1,4 @@
-name: scrape_data_reli
+name: scrape_data_hll
 
 on:
   push:
