@@ -28,7 +28,7 @@ jobs:
           pip install -r requirements.txt
       - name: pull already scraped data if exists
         run: |
-          git pull raw-data/hll
+          git pull origin raw-data/hll
           ls -al data/raw
       - name: Create csv file (scraping for 5.55 hrs)
         run: |
