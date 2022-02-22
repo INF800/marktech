@@ -44,6 +44,20 @@ def get_stocks(filter=None):
                 ],
             },
         },
+        'INFY': {
+            'url': 'https://www.investing.com/equities/infosys-technical',
+            'html_locations': {
+                "current_values": [
+                    "#quotes_summary_current_data",
+                ],
+                "secondary_data": [
+                    "#quotes_summary_secondary_data",
+                ],
+                "hr1_tech_content": [
+                    "#techinalContent",
+                ],
+            },
+        },
     }
 
     if not filter:
