@@ -157,7 +157,7 @@ def main():
             schedule.run_pending()
             time.sleep(1)
 
-    prefix = datetime.datetime.utcnow().strftime('%Y-%m-%d-%H%-M%')
+    prefix = datetime.utcnow().strftime('%Y-%m-%d-%H%-M%')
     if (SAVE_DIR/f'{args.symbol}.csv').exists():
         print("###########################################################################################")
         print('renaming file', str(SAVE_DIR/f'{args.stock}.csv'), '-->', str(SAVE_DIR/f'{prefix}-{args.stock}.csv'))
