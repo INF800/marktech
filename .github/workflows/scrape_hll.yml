@@ -3,7 +3,7 @@ name: scrape_data_hll
 on:
   push:
     branches:
-      - never
+      - main
   schedule:
     - cron:  '0 4 * * 1,2,3,4,5'
 
