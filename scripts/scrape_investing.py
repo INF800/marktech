@@ -157,10 +157,10 @@ def main():
             time.sleep(1)
 
     print("###########################################################################################")
-    print('renaming file)
+    print('renaming file')
     print("###########################################################################################")
     if (SAVE_DIR/f'{args.symbol}.csv').exists():
-        prefix = datetime.datetime.utcnow().strftime('%Y-%m-%d-%H%-M%-%S')
+        prefix = datetime.datetime.utcnow().strftime('%Y-%m-%d-%H%-M%')
         os.rename(str(SAVE_DIR/f'{args.symbol}.csv'), str(SAVE_DIR/f'{prefix}-{args.symbol}.csv'))
 
 
