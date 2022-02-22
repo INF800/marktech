@@ -157,7 +157,7 @@ def main():
             schedule.run_pending()
             time.sleep(1)
 
-    prefix = datetime.utcnow().strftime('%Y-%m-%d-%H%-M%')
+    prefix = datetime.utcnow().strftime('%Y-%m-%d-%H-%M')
     from_name = SAVE_DIR/f'{args.stock}.csv'
     to_name = SAVE_DIR/f'{prefix}-{args.stock}.csv'
     if from_name.exists():
