@@ -33,5 +33,5 @@ jobs:
         with:
           add: stock_data
           message: 'write to csv'
-          pull: '--no-rebase'
+          new_branch: raw-data/hll
           push: true

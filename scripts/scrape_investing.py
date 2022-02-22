@@ -92,7 +92,7 @@ def write_data(utc_time, data, STATIC_PAGE_SYMBOLS, STATIC_PAGE_URLS, STATIC_PAG
 
 def process(stock=None, SAVE_DIR=Path('data/raw')):
     utc_time = datetime.utcnow()
-    print('scraped:', utc_time)
+    print('proc @', utc_time)
     stocks = get_stocks(filter=stock)
     STATIC_PAGE_SYMBOLS, STATIC_PAGE_URLS, STATIC_PAGE_LOCATIONS, STATIC_PAGE_LOCATION_NAMES = generate_lists(stocks)
     data = scraper.scrape_all(STATIC_PAGE_URLS).find_all(STATIC_PAGE_LOCATIONS)
@@ -135,7 +135,7 @@ def main():
     print('Process will stop @', time_to_stop)
     print("###########################################################################################")
 
-    schedule.every(args.interval_min).minutes.do(process, (SAVE_DIR, args.stock))
+    schedule.every(args.interval_min).minutes.do(process, SAVE_DIR=SAVE_DIR, stock=args.stock)
     while datetime.utcnow()<time_to_stop:
         # print(datetime.utcnow())
         if datetime.utcnow().second==0:
