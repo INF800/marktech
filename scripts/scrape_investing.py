@@ -59,6 +59,20 @@ def get_stocks(filter=None):
                 ],
             },
         },
+        'HDBK': {
+            'url': 'https://www.investing.com/equities/hdfc-bank-ltd-technical',
+            'html_locations': {
+                "current_values": [
+                    "#quotes_summary_current_data",
+                ],
+                "secondary_data": [
+                    "#quotes_summary_secondary_data",
+                ],
+                "hr1_tech_content": [
+                    "#techinalContent",
+                ],
+            },
+        },
     }
 
     if not filter:
@@ -117,7 +131,7 @@ def process(stock=None, SAVE_DIR=Path('data/raw')):
 def parse_arguments():
     """ use for concurrent github action jobs
     python scripts/scrape_investing.py --interval-min 1 --limit-sec 21000 --save-dir data/raw --stock HLL
-    python scripts/scrape_investing.py --interval-min 1 --limit-sec 21000 --save-dir data/raw --stock HLL
+    python scripts/scrape_investing.py --interval-min 1 --limit-sec 21000 --save-dir data/raw --stock HDBK
     """
     parser = argparse.ArgumentParser(description='Process command line arguments.')
     parser.add_argument('--save-dir', type=str, default="stock_data")
