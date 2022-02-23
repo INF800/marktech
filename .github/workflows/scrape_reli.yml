@@ -28,7 +28,7 @@ jobs:
           pip install -r requirements.txt
       - name: Create csv file (scraping for 5.5 hrs)
         run: |
-          python scripts/scrape_investing.py --interval-min 1 --limit-sec 20000 --save-dir data/raw --stock RELI
+          python scripts/scrape_investing.py --interval-min 1 --limit-sec 20900 --save-dir data/raw --stock RELI
       - uses: EndBug/add-and-commit@v8
         with:
           add: data/raw
