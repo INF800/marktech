@@ -1,8 +1,10 @@
 from pathlib import Path
 from datetime import datetime, timedelta
 import time
+from collections import deque
 
 import numpy as np
+import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import streamlit as st
 
@@ -65,9 +67,32 @@ def main():
     fig = plot_data(beg, end, symbol, history, enable_candle)
     st.write(fig)
 
-    # todo: handle multivariate data 
+    # todo: plot live data (seasonal decomposition & live predictions)
+    live1, live2 = st.columns(2)
+    fig, ax = plt.subplots(figsize=(10, 4))
 
-    # todo: plot live data
+    max_samples = 100
+    max_x = max_samples
+    max_rand = 100
+
+    x = np.arange(0, max_x)
+    y = deque(np.zeros(max_samples), max_samples)
+
+    ax.set_ylim(0, max_rand)
+    ax.set_title("Some stream")
+    line, = ax.plot(x, np.array(y))
+    the_plot = live1.pyplot(plt)
+
+    def animate():  # update the y values (every 1000ms)
+        line.set_ydata(np.array(y))
+        the_plot.pyplot(plt)
+        y.append(np.random.randint(max_x)) #append y with a random integer between 0 to 100
+
+    for i in range(200):
+        animate()
+        time.sleep(0.01)
+
+    # todo: handle multivariate data     
 
     # todo: plot seasonality & other metrics
 
