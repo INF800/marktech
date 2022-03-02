@@ -2,6 +2,7 @@ class CfgPlot:
     rangebreaks = [
         { 'pattern': 'day of week', 'bounds': [6, 1]},
         { 'pattern': 'hour', 'bounds':[15.5, 9.5]},
+        # todo: add holidays (atleast non-moon based)
     ]
     layout_kwds = dict(margin=dict(l=0, r=0, t=0, b=0, pad=0),
                        legend=dict(
