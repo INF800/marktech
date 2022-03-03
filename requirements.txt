@@ -6,3 +6,6 @@ requests-html==0.10.0
 six==1.16.0
 urllib3==1.26.8
 requests==2.27.1
+streamlit==1.6.0
+plotly==5.6.0
+matplotlib==3.5.1
