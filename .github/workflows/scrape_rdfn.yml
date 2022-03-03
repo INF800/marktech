@@ -1,4 +1,4 @@
-name: scrape_data_redfn
+name: scrape_data_rdfn
 
 on:
   push:
@@ -28,10 +28,10 @@ jobs:
           pip install -r requirements.txt
       - name: Create csv file (scraping for 5.55 hrs)
         run: |
-          python scripts/scrape_investing.py --interval-min 1 --limit-sec 20900 --save-dir data/raw --stock REDFN
+          python scripts/scrape_investing.py --interval-min 1 --limit-sec 20900 --save-dir data/raw --stock RDFN
       - uses: EndBug/add-and-commit@v8
         with:
           add: data/raw
           message: 'write to csv'
-          new_branch: raw-data/redfn
+          new_branch: raw-data/rdfn
           push: true
