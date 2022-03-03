@@ -15,64 +15,55 @@ import scrape_static
 scraper = scrape_static.StaticPageScraper(verbose=0)
 
 
-def get_stocks(filter=None):
+def get_stocks(filter=None):    
+    default_html_locations = {
+        "current_values": [
+            "#quotes_summary_current_data",
+        ],
+        "secondary_data": [
+            "#quotes_summary_secondary_data",
+        ],
+        "hr1_tech_content": [
+            "#techinalContent",
+        ],
+    }
     stocks = {
+        #### NSE/BSE
         'HLL': {
             'url': 'https://www.investing.com/equities/hindustan-unilever-technical',
-            'html_locations': {
-                "current_values": [
-                    "#quotes_summary_current_data",
-                ],
-                "secondary_data": [
-                    "#quotes_summary_secondary_data",
-                ],
-                "hr1_tech_content": [
-                    "#techinalContent",
-                ],
-            },
+            'html_locations': default_html_locations,
         },
         'RELI': {
             'url': 'https://www.investing.com/equities/reliance-industries-technical',
-            'html_locations': {
-                "current_values": [
-                    "#quotes_summary_current_data",
-                ],
-                "secondary_data": [
-                    "#quotes_summary_secondary_data",
-                ],
-                "hr1_tech_content": [
-                    "#techinalContent",
-                ],
-            },
+            'html_locations': default_html_locations,
         },
         'INFY': {
             'url': 'https://www.investing.com/equities/infosys-technical',
-            'html_locations': {
-                "current_values": [
-                    "#quotes_summary_current_data",
-                ],
-                "secondary_data": [
-                    "#quotes_summary_secondary_data",
-                ],
-                "hr1_tech_content": [
-                    "#techinalContent",
-                ],
-            },
+            'html_locations': default_html_locations,
         },
         'HDBK': {
             'url': 'https://www.investing.com/equities/hdfc-bank-ltd-technical',
-            'html_locations': {
-                "current_values": [
-                    "#quotes_summary_current_data",
-                ],
-                "secondary_data": [
-                    "#quotes_summary_secondary_data",
-                ],
-                "hr1_tech_content": [
-                    "#techinalContent",
-                ],
-            },
+            'html_locations': default_html_locations,
         },
+        
+        #### NASDAQ / NYSE
+        'RDFN': {
+            'url': 'https://www.investing.com/equities/redfin-technical',
+            'html_locations': default_html_locations,
+        },        
+        'F': {
+            'url': 'https://www.investing.com/equities/ford-motor-co-technical',
+            'html_locations': default_html_locations,
+        },
+        'T': {
+            'url': 'https://www.investing.com/equities/at-t-technical',
+            'html_locations': default_html_locations,
+        },
+        'IRBT': {
+            'url': 'https://www.investing.com/equities/irobot-corp-technical',
+            'html_locations': default_html_locations,
+        },
+        
     }
 
     if not filter:
